@@ -18,10 +18,10 @@ This project scrapes health-related articles from the AARP website and uses a lo
   - Classifies whether it's a full article or a landing/catalog page
 - Saves all extracted data to `scraped_articles.json`
 
-### 2. LLM Processor (`theme_extractor.py`)
+### 2. LLM Processor (`llm_theme.py`)
 
 -Loads the scraped data from scraped_articles.json
--Uses the Mistral model locally via Ollama to extract 3–5 concise key themes from each article or landing page
+-Uses the Mistral 7B (quantized) model locally via Ollama to extract 3–5 concise key themes from each article or landing page
 -The Streamlit app:
 
 	- Provides an interactive interface for reviewing each article and its extracted themes
@@ -40,7 +40,7 @@ This project scrapes health-related articles from the AARP website and uses a lo
 ## 📁 Files
 
 - `scraper.ipynb` → Runs the AARP scraper
-- `theme_extractor.py` → Feeds articles to Mistral for theme extraction
+- `llm_theme.py` → Feeds articles to Mistral for theme extraction
 - `scraped_articles.json` → Stores the structured article data in JSON Format
 - `README.txt` → This file
 
@@ -72,7 +72,7 @@ Open and run each cell in: scraper.ipynb
 # Step 2: Make sure the scraped_articles.json is generated.
 
 # Step 3: Extract themes using the LLM
-streamlit run theme_extractor.py
+streamlit run llm_theme.py
 ```
 
 ---
